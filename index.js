@@ -1,8 +1,12 @@
-function nasceu() {
-    let ano = 2022;
-    let nasceu = document.getElementById('nasceu').value;
-    let idade= ano - nasceu;
-    alert(idade)
-    document.querySelector("#idade").innerText = idade;
-    
-}
+const express = require('express')
+const app = express()
+const port = 3000
+const routes = require('./routes/routes')
+
+app.use(express.static('public'))
+
+app.use('/',routes)
+
+app.listen(port,()=>{
+console.log("servidor rodando na porta "+port )
+}) 

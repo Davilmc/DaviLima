@@ -1,0 +1,10 @@
+
+<h1>TOPO DA PÁGINA</h1>
+   {{> formlogin}}
+   {{auth}}
+
+   {{# if auth}}
+   <h2>Logado</h2>
+   {{ else }}
+   <h5>senha incorreta</h5>
+   {{/ if}}

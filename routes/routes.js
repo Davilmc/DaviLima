@@ -1,14 +1,11 @@
 const express = require('express')
-const router = express.Router()
-const path = require('path')
-router.use(express.static("public"))
+const PessoasController = require('../controller/PessoasController.js')
+const routes = express.Router()
 
 
-router.get('/',(req,res) =>{
-    res.sendFile(path.resolve('index.html'))
-})
-router.use(function(res, req, next){
-    res.status(404).sendFile(path.resolve("404.html"))
-})
 
-module.exports = router
+routes.get('/', PessoasController.index)
+routes.get('/sobre', PessoasController.sobre)
+routes.get('/login', PessoasController.login)
+routes.post('/pessoas',PessoasController.store)
+module.exports = routes
